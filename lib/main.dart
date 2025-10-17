@@ -23,6 +23,9 @@ class TasbeehScreen extends StatefulWidget {
 }
 
 class _TasbeehScreenState extends State<TasbeehScreen> {
+  String subhantext = 'سبحان الله';
+  String hamdtext = 'الحمد لله';
+  String akbartext = 'الله اكبر';
   int subhanCount = 0;
   int hamdCount = 0;
   int akbarCount = 0;
@@ -63,7 +66,7 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('سبحان الله', style: TextStyle(fontSize: 18)),
+            Text(subhantext, style: TextStyle(fontSize: 18)),
             Text('$subhanCount', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
             ElevatedButton(
               onPressed: incrementSubhan,
@@ -76,7 +79,7 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
               ),
             ),
             SizedBox(height: 20),
-            Text('الحمد لله', style: TextStyle(fontSize: 18)),
+            Text(hamdtext, style: TextStyle(fontSize: 18)),
             Text('$hamdCount', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
             ElevatedButton(
               onPressed: incrementHamd,
@@ -89,7 +92,7 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
               ),
             ),
             SizedBox(height: 20),
-            Text('الله اكبر', style: TextStyle(fontSize: 18)),
+            Text(akbartext, style: TextStyle(fontSize: 18)),
             Text('$akbarCount', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
             ElevatedButton(
               onPressed: incrementAkbar,

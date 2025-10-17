@@ -5,17 +5,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        home: TasbeehScreen(),    
+      home: TasbeehScreen(),
     );
   }
 }
-
 
 class TasbeehScreen extends StatefulWidget {
   @override
@@ -25,38 +23,46 @@ class TasbeehScreen extends StatefulWidget {
 class _TasbeehScreenState extends State<TasbeehScreen> {
   String subhantext = 'سبحان الله';
   String hamdtext = 'الحمد لله';
-  String akbartext = 'الله اكبر';
+  String akbartext = 'الله أكبر';
+
   int subhanCount = 0;
   int hamdCount = 0;
   int akbarCount = 0;
 
+  String displayedText = '';
+  String dispalyedCount = '0';
+
   void incrementSubhan() {
     setState(() {
       subhanCount++;
+      displayedText = subhantext;
+      dispalyedCount = subhanCount.toString();
     });
   }
 
   void incrementHamd() {
     setState(() {
       hamdCount++;
+      displayedText = hamdtext;
+      dispalyedCount = hamdCount.toString();
     });
   }
 
   void incrementAkbar() {
     setState(() {
       akbarCount++;
+      displayedText = akbartext;
+      dispalyedCount = akbarCount.toString();
     });
   }
 
-
-
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple.shade50,
       appBar: AppBar(
         title: Text(
-          'سبحه الكترونيه',
+          'مسبحة إلكترونية',
           style: TextStyle(fontFamily: 'Arial', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -66,43 +72,78 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(subhantext, style: TextStyle(fontSize: 18)),
-            Text('$subhanCount', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-            ElevatedButton(
-              onPressed: incrementSubhan,
-              child: Text('سبحان الله'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.purple.shade700,
-                shape: StadiumBorder(),
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-              ),
+            Text(
+              displayedText,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            Text(hamdtext, style: TextStyle(fontSize: 18)),
-            Text('$hamdCount', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-            ElevatedButton(
-              onPressed: incrementHamd,
-              child: Text('الحمد لله'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.purple.shade700,
-                shape: StadiumBorder(),
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-              ),
+
+            Text(
+              dispalyedCount,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            Text(akbartext, style: TextStyle(fontSize: 18)),
-            Text('$akbarCount', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-            ElevatedButton(
-              onPressed: incrementAkbar,
-              child: Text('الله اكبر'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.purple.shade700,
-                shape: StadiumBorder(),
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-              ),
+
+            SizedBox(height: 50),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: incrementSubhan,
+                      child: Text('سبحان الله'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.purple.shade700,
+                        shape: StadiumBorder(),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 25, width: 25),
+
+                Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: incrementHamd,
+                      child: Text('الحمد لله'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.purple.shade700,
+                        shape: StadiumBorder(),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 25, width: 25),
+
+                Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: incrementAkbar,
+                      child: Text('الله أكبر'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.purple.shade700,
+                        shape: StadiumBorder(),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

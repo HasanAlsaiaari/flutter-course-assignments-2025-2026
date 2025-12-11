@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 
 class SecondScreen extends StatelessWidget {
+
+  final String data;
+  SecondScreen({required this.data});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

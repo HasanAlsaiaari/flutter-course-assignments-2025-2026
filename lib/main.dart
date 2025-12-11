@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'SecondScreen.dart';
 import 'AboutScreen.dart';

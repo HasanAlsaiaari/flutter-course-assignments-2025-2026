@@ -1,4 +1,5 @@
 
+//import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -71,8 +72,16 @@ class _ProfileAppState extends State<ProfileApp> {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your password';
                     }
-                    if (value.length < 6) {
-                      return 'Password must be at least 6 characters long';
+                    else if (value!.length<8) {
+                      return ' password should be at least 8 chars';
+                    }else if (!RegExp("[a-z]").hasMatch(value!)) {
+                      return ' password should at least one lowercase chars';
+                    }else if (!RegExp("[A-Z]").hasMatch(value!)) {
+                      return ' password should at least one uppercase chars';
+                    }else if (!RegExp("[!#\$%&'*+-/=?^_`{|}~@]").hasMatch(value!)) {
+                      return ' password should at least one symbol';
+                    }else if (!RegExp("[0-9]").hasMatch(value!)) {
+                      return ' password should at least one number';
                     }
                     return null;
                   },
